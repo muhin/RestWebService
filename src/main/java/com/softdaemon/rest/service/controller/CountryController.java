@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.softdaemon.rest.service.entity.Country;
@@ -17,6 +18,12 @@ public class CountryController {
 
 	@Autowired
 	CountryService countryService;
+	
+	@RequestMapping("/")
+	  @ResponseBody
+	  public String index() {
+	    return "Hello World!!!";
+	  }
 	
 	@RequestMapping(value = "/countries", method = RequestMethod.GET)
 	public List<Country> getCountries() {
